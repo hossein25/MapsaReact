@@ -6,7 +6,7 @@ import { makeStyles, Theme, createStyles, Typography } from '@material-ui/core';
 
 const useStyles = makeStyles((theme: Theme) => createStyles({
   icon: {
-    color: theme.palette.secondary.main
+    color: theme.palette.primary.main
   },
   responsive: {
     color: "blue",
