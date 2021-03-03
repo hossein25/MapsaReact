@@ -1,7 +1,7 @@
-import { Box, Button, createStyles, makeStyles } from "@material-ui/core"
+import { Box, Button, makeStyles } from "@material-ui/core";
 import { useEffect, useState } from "react";
 
-const useStyles = makeStyles((theme) => createStyles({
+const useStyles = makeStyles(() => ({
     image: {
         height: '10rem',
         width: "100%"
