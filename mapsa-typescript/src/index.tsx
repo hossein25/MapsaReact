@@ -7,6 +7,9 @@ import { Input } from './Input';
 import { Input1 } from './Input1';
 import Slider from './Slider';
 import Slider2 from './Slider2';
+import Tabs from './Tabs';
+import Todos from './Todos';
+import { TodoProvider } from './TodoContext';
 
 ReactDOM.render(
   <React.StrictMode>
@@ -15,7 +18,11 @@ ReactDOM.render(
     {/* <Input variant="filled" label="Name" />
     <Input1 label="Last Name" helperText="Error" /> */}
     {/* <Slider /> */}
-    <Slider2 />
+    {/* <Slider2 /> */}
+    {/* <Tabs /> */}
+    <TodoProvider>
+      <Todos />
+    </TodoProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );
