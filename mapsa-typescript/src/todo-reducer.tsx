@@ -1,3 +1,5 @@
+import { v4 as uuidv4 } from 'uuid';
+
 export interface ITodo {
     id: string;
     text: string;
@@ -11,7 +13,7 @@ export enum TodoActionTypes {
 }
 
 export interface IAddTodo {
-    type: TodoActionTypes.Add, text: string
+    type: TodoActionTypes.Add, payload: { text: string }
 }
 
 export type IDeleteTodo = {
@@ -24,13 +26,16 @@ export type ICheckTodo = {
 
 export type TodoActions = IAddTodo | IDeleteTodo | ICheckTodo;
 
-export const initialTodo: ITodo[] = [{ completed: false, id: "1", text: "salam" }]
+export const initialTodo: ITodo[] = [{ completed: false, id: uuidv4(), text: "salam" }]
 
-// export const todoReducer: Reducer<TodoState, TodoActions> = (state, action): TodoState => {
+// export const todoReducer: React.Reducer<TodoState, TodoActions> = (state, action): TodoState => {
 export const todoReducer = (state: ITodo[], action: TodoActions): ITodo[] => {
     switch (action.type) {
         case TodoActionTypes.Add:
-            return [...state, { text: action.text, id: "2", completed: false }]
+            return [...state, {
+                text: action.payload.text,
+                id: uuidv4(), completed: false
+            }]
 
         case TodoActionTypes.Delete:
             return state.filter(todo => todo.id !== action.id)

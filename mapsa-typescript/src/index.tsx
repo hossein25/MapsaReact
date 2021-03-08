@@ -9,7 +9,8 @@ import Slider from './Slider';
 import Slider2 from './Slider2';
 import Tabs from './Tabs';
 import Todos from './Todos';
-import { TodoProvider } from './TodoContext';
+import { TodoProvider } from './TodoProvider';
+import TodoApp from './TodoApp';
 
 ReactDOM.render(
   <React.StrictMode>
@@ -19,10 +20,11 @@ ReactDOM.render(
     <Input1 label="Last Name" helperText="Error" /> */}
     {/* <Slider /> */}
     {/* <Slider2 /> */}
-    {/* <Tabs /> */}
-    <TodoProvider>
+    <Tabs />
+    {/* <TodoProvider>
       <Todos />
-    </TodoProvider>
+    </TodoProvider> */}
+    {/* <TodoApp /> */}
   </React.StrictMode>,
   document.getElementById('root')
 );

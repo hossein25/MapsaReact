@@ -1,7 +1,8 @@
-import { Box, Button } from '@material-ui/core';
-import { NavLink, BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { Box, Button, Link } from '@material-ui/core';
+import { NavLink, BrowserRouter as Router, Route, Switch, Link as RouterLink } from 'react-router-dom';
 
 const Tabs = props => {
+    console.log("TAB");
     return <Router>
         Tabs
         <Box display="flex">
@@ -12,13 +13,15 @@ const Tabs = props => {
                 <NavLink to="/cuker">
                 Cuker
                 </NavLink>
+                <Link component={RouterLink} to="/tommy" >Material Link</Link>
             </Box>
             <Box>
-
                 <Switch>
                     <Route exact path="/tommy/:id" component={Tommy} />
-                    <Route exact path="/tommy" component={Tommy} />
-                    <Route exact path="/cuker" component={Cuker} />
+                    <Route exact path="/tommy" >
+                        <Tommy />
+                    </Route>
+                    <Route exact path="/cuker" render={() => <Cuker />} />
                 </Switch>
             </Box>
         </Box>
@@ -28,6 +31,7 @@ const Tabs = props => {
 export default Tabs;
 
 const Tommy = props => {
+    console.log("TOMMY");
     return <div>Tommy</div>
 }
 
