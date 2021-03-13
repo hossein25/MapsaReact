@@ -11,6 +11,7 @@ import Tabs from './Tabs';
 import Todos from './Todos';
 import { TodoProvider } from './TodoProvider';
 import TodoApp from './TodoApp';
+import Cocktail from './Cocktail';
 
 ReactDOM.render(
   <React.StrictMode>
@@ -20,11 +21,12 @@ ReactDOM.render(
     <Input1 label="Last Name" helperText="Error" /> */}
     {/* <Slider /> */}
     {/* <Slider2 /> */}
-    <Tabs />
+    {/* <Tabs /> */}
     {/* <TodoProvider>
       <Todos />
     </TodoProvider> */}
     {/* <TodoApp /> */}
+    <Cocktail />
   </React.StrictMode>,
   document.getElementById('root')
 );
