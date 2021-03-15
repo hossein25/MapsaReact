@@ -13,6 +13,7 @@ import { TodoProvider } from './TodoProvider';
 import TodoApp from './TodoApp';
 import Cocktail from './Cocktail';
 import DivarContainer from './divar/DivarContainer';
+import Shop from './shop/Shop';
 
 ReactDOM.render(
   <React.StrictMode>
@@ -28,7 +29,8 @@ ReactDOM.render(
     </TodoProvider> */}
     {/* <TodoApp /> */}
     {/* <Cocktail /> */}
-    <DivarContainer />
+    {/* <DivarContainer /> */}
+    <Shop />
   </React.StrictMode>,
   document.getElementById('root')
 );
