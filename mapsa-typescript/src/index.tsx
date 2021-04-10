@@ -1,19 +1,21 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import Tours from './Tours';
-import { Input } from './Input';
-import { Input1 } from './Input1';
-import Slider from './Slider';
-import Slider2 from './Slider2';
-import Tabs from './Tabs';
-import Todos from './Todos';
-import { TodoProvider } from './TodoProvider';
-import TodoApp from './TodoApp';
-import Cocktail from './Cocktail';
-import DivarContainer from './divar/DivarContainer';
-import Shop from './shop/Shop';
+import React from "react";
+import ReactDOM from "react-dom";
+import "./index.css";
+import App from "./App";
+import Tours from "./Tours";
+import { Input } from "./Input";
+import { Input1 } from "./Input1";
+import Slider from "./Slider";
+import Slider2 from "./Slider2";
+import Tabs from "./Tabs";
+import Todos from "./Todos";
+import { TodoProvider } from "./TodoProvider";
+import TodoApp from "./TodoApp";
+import Cocktail from "./Cocktail";
+import DivarContainer from "./divar/DivarContainer";
+import Shop from "./shop/Shop";
+import UploadButton from "./UplaodBUtton";
+import InfiniteScroll from "./InfiniteScroll";
 
 ReactDOM.render(
   <React.StrictMode>
@@ -30,7 +32,9 @@ ReactDOM.render(
     {/* <TodoApp /> */}
     {/* <Cocktail /> */}
     {/* <DivarContainer /> */}
-    <Shop />
+    {/* <Shop /> */}
+    {/* <UploadButton /> */}
+    <InfiniteScroll />
   </React.StrictMode>,
-  document.getElementById('root')
+  document.getElementById("root"),
 );
