@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { baseUrl } from "./baseUrl";
 import Login from "./Login";
 
@@ -9,10 +9,24 @@ const Shop = (props) => {
     phone: "",
     password: "",
   });
+  const [errors, setErrors] = useState({
+    username: "",
+    email: "",
+    phone: "",
+    password: "",
+  });
 
   const handleChange = (e) => {
     setForm((pre) => ({ ...pre, [e.target.name]: e.target.value }));
   };
+
+  useEffect(() => {
+    if (form.password.length && form.password.length < 4) {
+      setErrors((pre) => ({ ...pre, password: "Password must contains 4 character" }));
+    } else {
+      setErrors((pre) => ({ ...pre, password: "" }));
+    }
+  }, [form.password.length]);
 
   const submit = async (e) => {
     e.preventDefault();
@@ -50,6 +64,7 @@ const Shop = (props) => {
           value={form.password}
           onChange={handleChange}
         />
+        {errors.password && <div style={{ color: "red" }}>{errors.password}</div>}
         <button type="submit">SUBMIT</button>
       </form>
       <Login />

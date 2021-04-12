@@ -1,13 +1,12 @@
 import { Button } from "@material-ui/core";
-import { useRef } from "react";
+import { forwardRef, useRef } from "react";
 
 const UploadButton = (props) => {
   const inputRef = useRef(null);
 
   return (
     <div>
-      <input ref={inputRef} type="file" hidden />
-
+      <FilePicker ref={inputRef} />
       <Button
         variant="contained"
         color="secondary"
@@ -25,3 +24,7 @@ const UploadButton = (props) => {
 };
 
 export default UploadButton;
+
+const FilePicker = forwardRef((props, ref) => {
+  return <input ref={ref} type="file" hidden />;
+});

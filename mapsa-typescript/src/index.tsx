@@ -16,6 +16,7 @@ import DivarContainer from "./divar/DivarContainer";
 import Shop from "./shop/Shop";
 import UploadButton from "./UplaodBUtton";
 import InfiniteScroll from "./InfiniteScroll";
+import UserList from "./UserList";
 
 ReactDOM.render(
   <React.StrictMode>
@@ -32,9 +33,10 @@ ReactDOM.render(
     {/* <TodoApp /> */}
     {/* <Cocktail /> */}
     {/* <DivarContainer /> */}
-    {/* <Shop /> */}
+    <Shop />
     {/* <UploadButton /> */}
-    <InfiniteScroll />
+    {/* <InfiniteScroll /> */}
+    {/* <UserList /> */}
   </React.StrictMode>,
   document.getElementById("root"),
 );
