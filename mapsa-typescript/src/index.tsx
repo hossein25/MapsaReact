@@ -13,10 +13,11 @@ import { TodoProvider } from "./TodoProvider";
 import TodoApp from "./TodoApp";
 import Cocktail from "./Cocktail";
 import DivarContainer from "./divar/DivarContainer";
-import Shop from "./shop/Shop";
+import SignUp from "./shop/SignUp";
 import UploadButton from "./UplaodBUtton";
 import InfiniteScroll from "./InfiniteScroll";
 import UserList from "./UserList";
+import ShopApp from "./shop/ShopApp";
 
 ReactDOM.render(
   <React.StrictMode>
@@ -33,7 +34,8 @@ ReactDOM.render(
     {/* <TodoApp /> */}
     {/* <Cocktail /> */}
     {/* <DivarContainer /> */}
-    <Shop />
+    {/* <SignUp /> */}
+    <ShopApp />
     {/* <UploadButton /> */}
     {/* <InfiniteScroll /> */}
     {/* <UserList /> */}

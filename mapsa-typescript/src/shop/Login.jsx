@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { useHistory } from "react-router";
+import { useAuthContext } from "./AuthProvider";
 import { baseUrl } from "./baseUrl";
 
 const Login = (props) => {
@@ -8,7 +10,9 @@ const Login = (props) => {
   });
   const [errors, setErrors] = useState();
 
-  const [token, setToken] = useState("");
+  const { setToken } = useAuthContext();
+
+  const { push } = useHistory();
 
   const handleChange = (e) => {
     setForm((pre) => ({ ...pre, [e.target.name]: e.target.value }));
@@ -28,24 +32,10 @@ const Login = (props) => {
       return;
     }
     const data = await res.json();
-    setToken(data.token);
-
+    // setToken(data.token);
+    setToken(btoa(`${form.username}:${form.password}`));
+    push("/profile");
     try {
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  const getProfile = async () => {
-    try {
-      const res = await fetch(`${baseUrl}/edit_profile/`, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
-
-      const data = await res.json();
-      console.log({ data });
     } catch (error) {
       console.log(error);
     }
@@ -69,7 +59,6 @@ const Login = (props) => {
         />
         <button type="submit">SUBMIT</button>
       </form>
-      <button onClick={getProfile}>get profile</button>
       {errors &&
         Object.entries(errors).map(([key, value]) => (
           <div>

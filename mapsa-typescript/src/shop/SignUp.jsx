@@ -1,32 +1,19 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import { useHistory } from "react-router";
 import { baseUrl } from "./baseUrl";
-import Login from "./Login";
 
-const Shop = (props) => {
+const SignUp = () => {
   const [form, setForm] = useState({
     username: "",
     email: "",
     phone: "",
     password: "",
   });
-  const [errors, setErrors] = useState({
-    username: "",
-    email: "",
-    phone: "",
-    password: "",
-  });
-
+  const [messages, setMessages] = useState({});
+  const { push } = useHistory();
   const handleChange = (e) => {
     setForm((pre) => ({ ...pre, [e.target.name]: e.target.value }));
   };
-
-  useEffect(() => {
-    if (form.password.length && form.password.length < 4) {
-      setErrors((pre) => ({ ...pre, password: "Password must contains 4 character" }));
-    } else {
-      setErrors((pre) => ({ ...pre, password: "" }));
-    }
-  }, [form.password.length]);
 
   const submit = async (e) => {
     e.preventDefault();
@@ -37,7 +24,14 @@ const Shop = (props) => {
         "content-type": "application/json",
       },
     });
+
+    if (!res.ok) {
+      setMessages(await res.json());
+      return;
+    }
     const data = await res.json();
+    setMessages(data);
+    push("/login");
     console.log({ data });
 
     try {
@@ -48,7 +42,7 @@ const Shop = (props) => {
 
   return (
     <div>
-      shop
+      shop - sign up
       <form onSubmit={submit}>
         <input
           name="username"
@@ -64,12 +58,22 @@ const Shop = (props) => {
           value={form.password}
           onChange={handleChange}
         />
-        {errors.password && <div style={{ color: "red" }}>{errors.password}</div>}
         <button type="submit">SUBMIT</button>
+
+        <div>
+          {messages.message ? (
+            <span style={{ color: "green" }}>{messages.message}</span>
+          ) : (
+            Object.entries(messages).map(([key, value]) => (
+              <div style={{ color: "red" }}>
+                {key} --- {value}
+              </div>
+            ))
+          )}
+        </div>
       </form>
-      <Login />
     </div>
   );
 };
 
-export default Shop;
+export default SignUp;
